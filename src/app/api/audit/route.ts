@@ -32,14 +32,16 @@ export async function POST(request: Request) {
     ]`;
 
     // 4. Fire the complete data request across the internet to the Nebius Cloud AI Inference endpoint grid
-    const response = await fetch('https://nebius.ai', {
+    const response = await fetch('https://groq.com'
+, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${apiKey}`
       },
       body: JSON.stringify({
-        model: 'meta-llama/Meta-Llama-3.1-70B-Instruct', // Elite open-weight standard model optimized on NVIDIA hardware clusters
+        model: 'llama-3.3-70b-versatile',
+ // Elite open-weight standard model optimized on NVIDIA hardware clusters
         messages: [
           { role: 'system', content: systemPrompt },
           { role: 'user', content: logs }
